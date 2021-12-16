@@ -19,9 +19,11 @@ async function postMessage(): Promise<string> {
   const payload = {
     msgtype: type,
     [type]: {
-      content
-    },
-    mentioned_list: at.toLowerCase().includes('all') ? ['@all'] : at.split(',')
+      content,
+      mentioned_list: at.toLowerCase().includes('all')
+        ? ['@all']
+        : at.split(',')
+    }
   }
   return post(payload)
 }
